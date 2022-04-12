@@ -1,1 +1,25 @@
-
+.weather-app {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px;
+  border: 0.5px solid #2149be;
+  border-radius: 5px;
+}
+li {
+  list-style-type: none;
+  font-family: "Hubballi", cursive;
+  font-family: "Roboto", sans-serif;
+  font-size: large;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-family: "Hubballi", cursive;
+  font-family: "Roboto", sans-serif;
+}
+#current-temp {
+  font-size: xxx-large;
+  font-weight: 700;
+}
