@@ -30,9 +30,10 @@
         <div class="weather-app">
           <div class="row">
             <div class="col-6">
-              <h1>Minneapolis</h1>
+              <h1 id="city"></h1>
               <ul>
                 <li>Monday, April 11th</li>
+                <li id="weather-description"></li>
               </ul>
               <span input=""></span>
             </div>
@@ -41,15 +42,15 @@
             <div class="col-6">
               <div class="clearfix">
                 <i class="fa-solid fa-cloud-sun fa-3x float-left"></i>
-                <span class="float-left" id="current-temp">15</span>°C | °F
+                <span class="float-left" id="current-temp"></span>°F | °C
               </div>
             </div>
             <div class="col-6">
               <ul>
-                <li>High: 25 °C</li>
-                <li>Low: 13 °C</li>
-                <li>Wind: 30 mph</li>
-                <li>Rain: 0%</li>
+                <li>High: <span id="max-temp"></span> °F</li>
+                <li>Low: <span id="min-temp"></span> °F</li>
+                <li>Wind: <span id="wind-speed"></span> mph</li>
+                <li>Humidity: <span id="humidity"></span> %</li>
               </ul>
             </div>
           </div>
@@ -66,6 +67,6 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="src/app.js"></script>
   </body>
 </html>
