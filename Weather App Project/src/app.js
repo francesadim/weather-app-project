@@ -31,6 +31,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind-speed");
   let humidityElement = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#weather-icon");
 
   temperature.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -39,10 +40,14 @@ function displayTemperature(response) {
   lowtemp.innerHTML = Math.round(response.data.main.temp_min);
   windElement.innerHTML = Math.round(response.data.wind.speed);
   humidityElement.innerHTML = response.data.main.humidity;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   dateElement.innerHTML = getDate(response.data.dt * 1000);
 }
 
 let apiKey = "d5453a99d7bbcbcb83f0b73e111b264c";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=imperial`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lagos&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
