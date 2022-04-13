@@ -27,6 +27,7 @@ small {
 .weather-contain {
   max-width: 700px;
   margin: 40px auto;
+  background-color: #9dc0f4;
 }
 #current-temp {
   font-size: xxx-large;
