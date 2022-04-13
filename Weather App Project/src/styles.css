@@ -5,6 +5,9 @@ li {
   font-size: large;
   text-transform: capitalize;
 }
+li:first-letter {
+  text-transform: capitalize;
+}
 ul {
   margin: 0;
   padding: 0;
