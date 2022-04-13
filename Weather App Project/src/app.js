@@ -42,7 +42,7 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   dateElement.innerHTML = getDate(response.data.dt * 1000);
 }
