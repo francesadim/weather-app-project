@@ -29,48 +29,66 @@
       <div class="weather-contain">
         <div class="weather-app">
           <div class="row">
-            <div class="col-6">
-              <h1 id="city"></h1>
-              <ul>
-                <li id="date">Monday, April 11th</li>
-                <li id="weather-description"></li>
-              </ul>
-              <span input=""></span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="clearfix">
-                <span>
-                  <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="#"
-                    id="weather-icon"
-                  />
-                </span>
-                <span class="float-left" id="current-temp"></span>°F | °C
+            <div class="col-9">
+              <form id="search-form" class="mb-3">
+                <input
+                  type="Search"
+                  placeholder="Enter City"
+                  class= "form-control"
+                  id= "city-input"
+                />
               </div>
+                <div class="col-3">
+                  <input type="submit" class="btn btn-primary" value="Search" />
+              </div>
+              </form>
             </div>
-            <div class="col-6">
-              <ul>
-                <li>High: <span id="max-temp"></span> °F</li>
-                <li>Low: <span id="min-temp"></span> °F</li>
-                <li>Wind: <span id="wind-speed"></span> mph</li>
-                <li>Humidity: <span id="humidity"></span> %</li>
-              </ul>
-            </div>
+          
+        
+        <div class="row">
+          <div class="col-6">
+            <h1 id="city"></h1>
+            <ul>
+              <li id="date">Monday, April 11th</li>
+              <li id="weather-description"></li>
+            </ul>
+            <span input=""></span>
           </div>
         </div>
-
-        <small>
-          <a
-            href="https://github.com/francesadim/weather-app-project"
-            target="_blank"
-            >Open-Source</a
-          >
-          Code by Frances Adimoraegbu
-        </small>
+        <div class="row">
+          <div class="col-6">
+            <div class="clearfix">
+              <span>
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt="#"
+                  id="weather-icon"
+                />
+              </span>
+              <span class="float-left" id="current-temp"></span>°F | °C
+            </div>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li>High: <span id="max-temp"></span> °F</li>
+              <li>Low: <span id="min-temp"></span> °F</li>
+              <li>Wind: <span id="wind-speed"></span> mph</li>
+              <li>Humidity: <span id="humidity"></span> %</li>
+            </ul>
+          </div>
+        </div>
       </div>
+         </div>
+          </div>
+<div>
+      <small>
+        <a
+          href="https://github.com/francesadim/weather-app-project"
+          target="_blank"
+          >Open-Source</a
+        >
+        Code by Frances Adimoraegbu
+      </small>
     </div>
 
     <script src="src/app.js"></script>

@@ -47,7 +47,21 @@ function displayTemperature(response) {
   dateElement.innerHTML = getDate(response.data.dt * 1000);
 }
 
-let apiKey = "d5453a99d7bbcbcb83f0b73e111b264c";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lagos&appid=${apiKey}&units=imperial`;
+//let apiKey = "d5453a99d7bbcbcb83f0b73e111b264c";
+//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lagos&appid=${apiKey}&units=imperial`;
 
-axios.get(apiUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = "d5453a99d7bbcbcb83f0b73e111b264c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function searchForm(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+  //cityInputElement.innerHTML=
+}
+
+let formElement = document.querySelector("#search-form");
+formElement.addEventListener("submit", searchForm);

@@ -16,6 +16,9 @@ h1 {
   font-family: "Hubballi", cursive;
   font-family: "Roboto", sans-serif;
 }
+small {
+  text-align: center;
+}
 .weather-app {
   padding: 40px;
   border: 0.5px solid #2149be;
