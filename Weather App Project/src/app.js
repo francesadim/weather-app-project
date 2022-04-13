@@ -62,6 +62,7 @@ function searchForm(event) {
   search(cityInputElement.value);
   //cityInputElement.innerHTML=
 }
+search("Minneapolis");
 
 let formElement = document.querySelector("#search-form");
 formElement.addEventListener("submit", searchForm);
