@@ -39,3 +39,6 @@ small {
 .float-left {
   margin-top: 50px;
 }
+.description {
+  text-align: center;
+}
