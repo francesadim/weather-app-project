@@ -33,7 +33,9 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#weather-icon");
 
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  farenheitTemperature = response.data.main.temp;
+
+  temperature.innerHTML = Math.round(farenheitTemperature);
   cityElement.innerHTML = response.data.name;
   weatherElement.innerHTML = response.data.weather[0].description;
   highTemp.innerHTML = Math.round(response.data.main.temp_max);
@@ -60,9 +62,29 @@ function searchForm(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
-  //cityInputElement.innerHTML=
 }
-search("Minneapolis");
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let celsiusTemperature = ((farenheitTemperature - 32) * 5) / 9;
+  let currentTempElement = document.querySelector("#current-temp");
+  currentTempElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFarenheitTemperature(event) {
+  event.preventDefault();
+  let currentTempElement = document.querySelector("#current-temp");
+  currentTempElement.innerHTML = Math.round(farenheitTemperature);
+}
+//let farenheitTemperature = null;
 
 let formElement = document.querySelector("#search-form");
 formElement.addEventListener("submit", searchForm);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", displayFarenheitTemperature);
+
+search("Minneapolis");
