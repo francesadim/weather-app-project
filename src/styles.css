@@ -42,3 +42,12 @@ small {
 .description {
   text-align: center;
 }
+.weather-forecast {
+  margin-top: 40px;
+  text-align: center;
+  font-size: smaller;
+  color: grey;
+}
+#high-temp {
+  font-weight: bold;
+}
