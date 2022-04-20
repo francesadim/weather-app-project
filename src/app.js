@@ -72,18 +72,17 @@ function displayForecast(response) {
   dailyForecast.forEach(function (forecastDay, index) {
     let maxTemp = Math.round(forecastDay.temp.max);
     let minTemp = Math.round(forecastDay.temp.min);
-    if (index < 5) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
   <div class="col-2">
-   <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+   <div class="weather-forecast-date">${formatDay(forecastDay.dt)} <br>
     <img src="https://openweathermap.org/img/wn/${
       forecastDay.weather[0].icon
-    }@2x.png" alt="" width="50px"> <br>
-     
+    }@2x.png" alt="#" width="50px"> <br>
     <span id="high-temp"> ${maxTemp}° </span> | <span id="low-temp"> ${minTemp}° </span> 
-  </div>
+    </div>
 </div>
 `;
     }
