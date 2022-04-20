@@ -21,6 +21,14 @@ function getDate(time) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+function formatDay(time) {
+  let date = new Date(time * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayTemperature(response) {
   console.log(response.data);
   let temperature = document.querySelector("#current-temp");
@@ -47,31 +55,42 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   dateElement.innerHTML = getDate(response.data.dt * 1000);
+  getForecast(response.data.coord);
 }
 
 function getForecast(coordinates) {
   let apiKey = "d5453a99d7bbcbcb83f0b73e111b264c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
 }
-axios.get(apiUrl).then(displayForecast);
 
 function displayForecast(response) {
-  let forecastElement = document.querySelector("#weather-forecast");
+  let dailyForecast = response.data.daily;
 
+  let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    `
+  dailyForecast.forEach(function (forecastDay, index) {
+    let maxTemp = Math.round(forecastDay.temp.max);
+    let minTemp = Math.round(forecastDay.temp.min);
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col-2">
-   <div class="weather-forecast-date">${day}</div>
-    <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="" width="50px"> <br>
-     <span id="high-temp"> 41° </span> | <span id="low-temp"> 28° </span> 
+   <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+    <img src="https://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png" alt="" width="50px"> <br>
+     
+    <span id="high-temp"> ${maxTemp}° </span> | <span id="low-temp"> ${minTemp}° </span> 
   </div>
 </div>
 `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
 
 //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lagos&appid=${apiKey}&units=imperial`;
 
@@ -99,9 +118,7 @@ function displayFarenheitTemperature(event) {
   let currentTempElement = document.querySelector("#current-temp");
   currentTempElement.innerHTML = Math.round(farenheitTemperature);
 }
-//let farenheitTemperature = null;
-
-getForecast(response.data.coord);
+let farenheitTemperature = null;
 
 let formElement = document.querySelector("#search-form");
 formElement.addEventListener("submit", searchForm);
