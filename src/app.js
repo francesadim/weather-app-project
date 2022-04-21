@@ -2,7 +2,7 @@ function getDate(time) {
   let date = new Date(time);
   let hours = date.getHours();
   if (hours < 10) {
-    minutes = `0${hours}`;
+    hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
@@ -30,7 +30,6 @@ function formatDay(time) {
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
   let temperature = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city");
   let weatherElement = document.querySelector("#weather-description");
